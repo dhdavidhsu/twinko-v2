@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TWINKO - 戀愛不再看感覺，約會不用靠運氣</title>
+
+  <!-- Favicon for different devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  <meta name="msapplication-TileColor" content="#818cf8">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- CSS : Tailwind template & My own CSS -->
+  <link rel="stylesheet" href="css/tailwind.css ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/user.css">
+  <link rel="stylesheet" href="css/hover-min.css">
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/user.js"></script>
+
+</head>
+
+<body class="bg-white-100">
+
+  <!-- Start of nav -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div class="w-full text-gray-700 bg-indigo-400">
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="p-4 flex flex-row items-center justify-between">
+        <a href="index.html"
+          class="md:hidden text-lg font-semibold tracking-widest text-white uppercase rounded-lg  focus:outline-none focus:shadow-outline">TWINKO
+        </a>
+        <a href="index.html"
+          class="hover:-translate-y-1 hover:scale-150 transition transform duration-500 ease-in-out current-page"><img
+            class="h-6 xl:h-24 hidden md:inline hvr-pulse" src="img/logo.png" alt=""></a>
+        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row text-gray-50">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="chat.html">即時聊天</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="personality.html">人格測驗</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="match.html">每日配對</a>
+
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg z-50 hvr-pulse">
+            <span>關於我們</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-50">
+            <div class="px-2 py-2 bg-indigo-400 rounded-md shadow">
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="about-us.html">關於我們</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="testimonial.html">客戶見證</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="contact-us.html">聯絡我們</a>
+            </div>
+          </div>
+        </div>
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse">
+            <span>聚會交友</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-30">
+            <div class="px-2 py-2 bg-indigo-400 rounded-md shadow dark-mode:bg-gray-700">
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="event.html">主題約會</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="seminar.html">戀愛企劃</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#">呼朋引伴</a>
+            </div>
+          </div>
+        </div>
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse">
+            <span>遊戲商城</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right z-30">
+            <div class="px-2 pt-2 pb-4 bg-indigo-400 rounded-md shadow-lg dark-mode:bg-gray-700">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Appearance</p>
+                    <p class="text-sm">Easy customization</p>
+                  </div>
+                </a>
+
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Comments</p>
+                    <p class="text-sm">Check your latest comments</p>
+                  </div>
+                </a>
+
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                      <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Analytics</p>
+                    <p class="text-sm">Take a look at your statistics</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- End of nav -->
+
+  <!-- Content -->
+  <!-- Default is bg-gray-100 -->
+  <div class="lg:grid grid-cols-2 2xl:grid-cols-5 bg-gray-100">
+    <div class="px-8 py-12 max-w-md mx-auto max-w-xl lg:px-12 lg:py-18 lg:max-w-full xl:mr-0 2xl:col-span-2">
+
+      <ol class="list-none p-0 inline-flex lg:hidden">
+        <li class="flex items-center">
+          <a href="index.html">Home</a>
+          <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+          </svg>
+        </li>
+        <!-- <li class="flex items-center">
+          <a href="#">Front Page</a>
+          <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+          </svg>
+        </li>
+        <li>
+          <a href="#" class="text-gray-500" aria-current="page">Third Level</a>
+        </li> -->
+      </ol>
+
+      <!-- Start of Catchy slogan/CTA -->
+      <div class="xl:max-w-xl">
+
+        <!-- Start only visible on mobile -->
+        <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover object-center lg:hidden"
+          src="img/hero6.png" alt="">
+        <!-- End of only visible on mobile -->
+
+        <h1 class="mt-6 mb-6 text-2xl font-bold text-gray-900 sm:mt-8 sm:text-3xl lg:text-3xl xl:text-4xl ">
+          記得<span class="text-orchid-300">註冊</span>或加入<span class="text-orchid-300">會員</span>，<br
+            class="hidden lg:inline">才能<span class="text-indigo-500">解鎖</span>我們<span
+            class="text-indigo-500">全部的功能喔!</span>
+        </h1>
+        <div class="mt-4 space-x-1 sm:mt-6 sm:text-base">
+          <!-- Start of Log in -->
+          <div class="log-in bg-indigo-200 mx-auto my-10 border-2 border-indigo-300 w-auto rounded-lg">
+            <img src="img/logo.png" alt="" class="w-1/4 mx-auto hvr-pulse block">
+            <form class="">
+              <div>
+                <label class="block mb-2 text-indigo-500" for="username">Username</label>
+                <input
+                  class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-orchid-200"
+                  type="text" name="username">
+              </div>
+              <div>
+                <label class="block mb-2 text-indigo-500" for="password">Password</label>
+                <input
+                  class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-orchid-200"
+                  type="password" name="password">
+              </div>
+              <div>
+                <input class="w-full bg-indigo-700 hover:bg-orchid-700 text-white font-bold py-2 px-4 mb-6 rounded"
+                  type="submit">
+
+                <a class="text-indigo-700 hover:text-pink-700 text-sm float-left" href="#">Forgot Password?</a>
+                <a class="text-indigo-700 hover:text-pink-700 text-sm float-right" href="#">Create Account</a>
+              </div>
+            </form>
+
+          </div>
+          <!-- End of Log in -->
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <!-- Start of Hidden content, only visible on desktop -->
+    <div class="hidden lg:block relative 2xl:col-span-3 z-0 overflow-hidden">
+      <div class="sketchfab-embed-wrapper absolute inset-0">
+        <div class="absolute inset-0 h-1 w-full z-10 bg-black z-99"
+          style="padding-bottom: 10%; background-color: #DAD6C9;">
+          <h1 class="pt-4 px-4">主人，歡迎回來! 都2021年了，怎麼還有人在打字登入啊? <br>不是都應該用指紋登入嗎? 身為聰明伶俐的AI少女，我把表單鎖住了!
+          </h1>
+        </div>
+        <div class=" absolute bottom-0 left-0 h-4 w-full z-10" style="padding-bottom: 12%; background-color: #DAD6C9;">
+          <p class="pt-4 px-4"> 就跟你說了人家不是圖片，是3D的AI少女! <br>人家才不是什麼png還是jpg呢! <br>不要對人家動手動腳或是拖拖拉拉的，討厭啦~</p>
+
+        </div>
+        <!-- <div class="absolute bg-red-500 bottom-0 left-0 h-18 w-full" style="padding-top: 5%"></div> -->
+        <iframe src="https://sketchfab.com/models/7d0e15fe6f1542b498418a9e58a9e2be/embed?autospin=1&autostart=1"
+          width="1000" height="670">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <!-- End of Hidden content, only visible on desktop -->
+
+
+
+
+
+  <div class="mx-auto flex align-middle justify-center flex-wrap pt-5 pb-20 lg:pb-28"
+    style="background-color: #d8dee8;">
+    <h1 id="welcome-msg" class="animate__animated animate__rubberBand text-2xl font-bold text-gray-400 sm:py-10 sm:text-3xl lg:text-3xl xl:text-4xl
+    text-center min-w-full">Welcome</h1>
+    <button class="finger-button js-vibrating-btn" type="button">
+      <span class="print print--under">
+        <svg viewBox="0 0 98 109" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m95.42 60.221c0.33333-4.6667 0.33333-10.667 0-18-0.5-11-8.5-26.5-24-34.5-15.5-8-38-9.5-55.5 8-11.667 11.667-16 25.5-13 41.5l0.65525 4.3683c0.38693 2.5791 2.7914 4.3563 5.3705 3.9695 2.5664-0.38496 4.3413-2.7687 3.9742-5.3378-1-7-6-22 10-38 14.554-14.554 38.15-14.554 52.704 0 4.5444 4.5444 7.8364 10.187 9.5562 16.379 0.5744 2.0681 0.98766 3.9417 1.2398 5.6209 2.4899 16.582-2.9979 37.051-6 53"
+            pathLength="1" />
+          <path
+            d="m15.42 76.221c5.3333-3.6667 7.3333-10.167 6-19.5-0.23862-1.551-0.44877-3.0902-0.63044-4.6174-1.8313-15.395 9.1641-29.359 24.559-31.191 1.268-0.15084 2.5448-0.21497 3.8216-0.19197 15.616 0.28138 28.07 13.129 27.864 28.747-0.089675 6.8105-0.29443 11.895-0.61426 15.253-1.2042 12.644-2.9364 21.532-7 37"
+            pathLength="1" />
+          <path
+            d="m19.92 85.221c7-5.3333 10.5-13.333 10.5-24v-12.5c0-10.217 8.2827-18.5 18.5-18.5 10.287 0 18.636 8.3235 18.666 18.611 0.019372 6.5699-0.035925 10.7-0.16589 12.389-1.5 19.5-3.5 31.5-12 45"
+            pathLength="1" />
+          <path
+            d="m26.92 92.221c8.6667-9.3333 13-17.333 13-24 0-4.1832-0.18166-10.365-0.54497-18.544-0.2219-4.9954 3.6478-9.2249 8.6432-9.4467 0.13383-0.0059444 0.26778-0.0089177 0.40175-0.0089177 5.5235 0 10.044 4.395 10.2 9.9163 0.16256 5.764-0.070756 11.792-0.69994 18.084-1.5 15-5.5 25.5-16.5 38"
+            pathLength="1" />
+          <path d="m32.92 99.221c10.667-12.333 16-23.333 16-33v-17" pathLength="1" />
+        </svg>
+      </span>
+      <span class="print print--over">
+        <svg viewBox="0 0 98 109" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m95.42 60.221c0.33333-4.6667 0.33333-10.667 0-18-0.5-11-8.5-26.5-24-34.5-15.5-8-38-9.5-55.5 8-11.667 11.667-16 25.5-13 41.5l0.65525 4.3683c0.38693 2.5791 2.7914 4.3563 5.3705 3.9695 2.5664-0.38496 4.3413-2.7687 3.9742-5.3378-1-7-6-22 10-38 14.554-14.554 38.15-14.554 52.704 0 4.5444 4.5444 7.8364 10.187 9.5562 16.379 0.5744 2.0681 0.98766 3.9417 1.2398 5.6209 2.4899 16.582-2.9979 37.051-6 53"
+            pathLength="1" />
+          <path
+            d="m15.42 76.221c5.3333-3.6667 7.3333-10.167 6-19.5-0.23862-1.551-0.44877-3.0902-0.63044-4.6174-1.8313-15.395 9.1641-29.359 24.559-31.191 1.268-0.15084 2.5448-0.21497 3.8216-0.19197 15.616 0.28138 28.07 13.129 27.864 28.747-0.089675 6.8105-0.29443 11.895-0.61426 15.253-1.2042 12.644-2.9364 21.532-7 37"
+            pathLength="1" />
+          <path
+            d="m19.92 85.221c7-5.3333 10.5-13.333 10.5-24v-12.5c0-10.217 8.2827-18.5 18.5-18.5 10.287 0 18.636 8.3235 18.666 18.611 0.019372 6.5699-0.035925 10.7-0.16589 12.389-1.5 19.5-3.5 31.5-12 45"
+            pathLength="1" />
+          <path
+            d="m26.92 92.221c8.6667-9.3333 13-17.333 13-24 0-4.1832-0.18166-10.365-0.54497-18.544-0.2219-4.9954 3.6478-9.2249 8.6432-9.4467 0.13383-0.0059444 0.26778-0.0089177 0.40175-0.0089177 5.5235 0 10.044 4.395 10.2 9.9163 0.16256 5.764-0.070756 11.792-0.69994 18.084-1.5 15-5.5 25.5-16.5 38"
+            pathLength="1" />
+          <path d="m32.92 99.221c10.667-12.333 16-23.333 16-33v-17" pathLength="1" />
+        </svg>
+      </span>
+    </button>
+  </div>
+
+
+
+  <div class="alert success hidden">
+    <span class="closebtn">&times;</span>
+    <strong>Success!</strong> 身分確認成功!!!
+  </div>
+
+
+
+  <a class="alert hidden btn btn-primary shadow-lg w-full text-lg text-center"
+    href="index-a.html"><strong>歡迎回來!</strong> 按我進入會員專區</a>
+
+  <!-- <div class="alert info hidden">
+
+  </div> -->
+
+
+
+
+
+
+
+  <!-- Start of footer -->
+  <div class="px-4 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 pb-10">
+    <div class="grid gap-6 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="hidden md:block md:col-span-2">
+        <a href="index.html" aria-label="Go home" title="Company" class="inline-flex items-center">
+          <svg class="w-8 text-purple-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2"
+            stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+            <rect x="3" y="1" width="7" height="12"></rect>
+            <rect x="3" y="17" width="7" height="6"></rect>
+            <rect x="14" y="1" width="7" height="6"></rect>
+            <rect x="14" y="11" width="7" height="12"></rect>
+          </svg>
+          <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">TWINKO</span>
+        </a>
+        <div class="mt-6 lg:max-w-sm">
+          <p class="text-xs text-gray-800">
+            TWINKO LTD., A SUBSIDIARY OF VMBC LTD., IS THE BRAINCHILD OF DAVID HSU, ESQ.
+            <strong>THIS WEBSITE FOR DEMONSTRATION PURPOSES ONLY.</strong>
+          </p>
+          <p class="mt-4 text-xs text-gray-800">
+            本網站只是單純交作業用，並不是真實的網站，也沒有進行任何的商業行為。本網站的內容與真實人物事件無關。如有雷同皆屬巧合。<br>什麼？你真的想要我救你脫單? 我看起來像是月老嗎?
+          </p>
+        </div>
+      </div>
+      <div class="space-y-2 text-sm">
+        <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
+        <div class="flex">
+          <p class="mr-1 text-gray-800">Phone:</p>
+          <a href="tel:02-2320-620*" aria-label="Our phone" title="Our phone"
+            class="transition-colors duration-300 hover:text-purple-800">02-2320-6208</a>
+        </div>
+        <div class="flex">
+          <p class="mr-1 text-gray-800">Email:</p>
+          <a href="mailto:twinko@hornpub.com" aria-label="Our email" title="Our email"
+            class="transition-colors duration-300 hover:text-purple-800">twinko@hornpub.com</a>
+        </div>
+        <div class="flex">
+          <p class="mr-1 text-gray-800">Address:</p>
+          <a href="https://goo.gl/maps/n6DhG4pN46x7bLMG9" target="_blank" rel="noopener noreferrer"
+            aria-label="Our address" title="Our address" class="transition-colors duration-300 hover:text-purple-800">
+            420 Man Fuk Rd, Taipei
+          </a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
+        <div class="flex items-center mt-1 space-x-3">
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+              <path
+                d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+              </path>
+            </svg>
+          </a>
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+            <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+              <circle cx="15" cy="15" r="4"></circle>
+              <path
+                d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z">
+              </path>
+            </svg>
+          </a>
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+              <path
+                d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+              </path>
+            </svg>
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">
+          我們終於有FB, IG, Youtube了 !!! 在社群媒體上追蹤我們吧! </p>
+      </div>
+    </div>
+    <div class="flex flex-col-reverse justify-between pt-5 pb-6 border-t lg:flex-row">
+      <p class="text-tiny text-gray-600 md:hidden py-2">嘿，女孩/男孩。我猜你現在正在用手機看TWINKO。我猜對了嗎?
+        沒想到真的有人這麼認真地看這麼小的字。用這樣的心態去讀書的話，你都可以上哈佛了呢(誤)! 既然你這麼認真，那我偷偷告訴你，TWINKO在手機/平板/電腦上看都是不一樣的喔! 版面跟圖片都不一樣。Have
+        a
+        wonderful day, whoever you are. :)
+      </p>
+      <p class="text-sm text-gray-600">
+        Copyright © 2021 TWINKO LTD. All rights reserved.
+      </p>
+
+      <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+        <li>
+          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">F.A.Q</a>
+        </li>
+        <li>
+          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">Privacy
+            Policy</a>
+        </li>
+        <li>
+          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">Terms
+            &amp;
+            Conditions</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- End of footer -->
+
+
+  <script>
+
+    var timeout;
+    $(".finger-button").hover(
+      function () {
+        timeout = setTimeout(function () {
+          // do stuff on hover
+          // $(".success").fadeToggle(1000);
+          $(".success").removeClass('hidden');
+          $("#welcome-msg").toggleClass('animate__hinge');
+        }, 3500);
+
+      },
+      function () {
+        clearTimeout(timeout);
+        // do stuff when hover off
+        // alert("No!");
+        $("#welcome-msg").toggleClass('animate__fadeIn');
+      }
+    );
+
+
+    $(".closebtn").click(function () {
+      $(".success").toggleClass("hidden");
+      $(".alert").toggleClass("hidden");
+      $("#welcome-msg").toggleClass('animate__lightSpeedInRight');
+    });
+
+    // Vibrate on mobile
+    $('.finger-button').vibrate({
+      time: 500,
+      style: 'pulse',
+      event: 'mouseover',
+      pulseCount: 3,
+      pulseInterval: 1000,
+      onVibrateComplete: function () { }
+    });
+
+
+    $(".log-in").click(function (event) {
+      event.preventDefault();
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+
+
+.event{
+	height: 825px;
+  /* padding: 5vw; */
+}
+
+.event a{
+	font-family: "Noto Sans TC";
+	display: block;
+	text-decoration: none;
+	line-height: 3;
+	background-color: #8B81C3;
+	color:#47008A;
+}
+
+.event a:hover{
+ 	color:white;
+}
+
+.event a:active{
+	color:  #EE62B3;
+}
+
+.event img{
+	width: 100%;
+}
+
+.event-content h3{
+	margin-top: 20px;
+	font-size: 25px;
+  }
+
+  .event h4.title{
+	font-size: 20px;
+	color:#784DBC;
+	margin-bottom: 15px;
+}
+
+/* This is their UL */
+.event .splide__list{
+	text-align: center;
+	/* width: 30%; */
+	border: 1px solid black;
+
+}
+
+/* This is their LI */
+.event .splide__slide{
+	display:inline-block;
+  max-height: 700px;
+	/* padding-left: 20px;
+	padding-right: 20px; */
+	border-radius: 20px;
+	border: 1px dashed #707070;
+  /* position: relative; */
+  overflow: hidden;
+}
+
+.event .splide__slide:nth-child(odd){
+	background-color:#FEEAFA;
+}
+
+.event .splide__slide:nth-child(even){
+	background-color:#E6E9FF;
+}
+
+.event .splide__slide:nth-child(even) a{
+	background-color: #F7DFE9;
+	border: 1px solid #707070;
+}
+
+
+.event .splide__slide img{
+	border-radius: 10px;
+	border: 1px solid #707070;
+}
+
+
+.event span{
+	/* display: inline; */
+	margin-right: 10px;
+	font-size: 11px;
+	color:#784DBC;
+}
+
+.event span + div{
+	margin: 0 auto;
+	width: 90%;
+}
+
+.event p{
+	/* display: inline; */
+	/* margin-right: 10px; */
+	font-size: 14px;
+	text-align: center;
+	color:#784DBC;
+	margin-top: 20px;
+	line-height: 1.5;
+	/* width: 90%; */
+	height: 150px;
+  overflow: hidden;
+  white-space:wrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+.event a{
+	margin: 5vh auto;
+	text-align: center;
+	width: 170px;
+	border-radius: 10px;
+  /* position: absolute;
+  left:10vw;
+  bottom: 10%; */
+}

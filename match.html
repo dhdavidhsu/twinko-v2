@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TWINKO - 戀愛不再看感覺，約會不用靠運氣</title>
+
+  <!-- Favicon for different devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  <meta name="msapplication-TileColor" content="#818cf8">
+  <meta name="theme-color" content="#ffffff">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- CSS : Tailwind template & My own CSS -->
+  <link rel="stylesheet" href="css/tailwind.css ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/swipe.css">
+  <link rel="stylesheet" href="css/hover-min.css">
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+</head>
+
+<body class="bg-white">
+
+
+  <!-- Loading screen -->
+  <!-- <div x-ref="loading"
+    class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker">
+    Loading.....
+  </div> -->
+
+  <!-- Content -->
+  <!-- Default is bg-gray-100 -->
+
+  <div class="lg:grid grid-cols-2 2xl:grid-cols-5 bg-gray-100 bg-cover bg-no-repeat	min-h-1/2 lg:min-h-3/4vh"
+    style="background-image: url(img/abstract3.png); ">
+
+    <div class="px-8 py-12 max-w-md mx-auto max-w-xl lg:px-12 lg:py-18 lg:max-w-full xl:mr-0 2xl:col-span-2">
+
+      <!-- Start of breadcrumb -->
+
+      <!-- <ol class="list-none p-0 inline-flex lg">
+        <li class="flex items-center">
+          <a href="index.html">Home</a>
+          <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+          </svg>
+        </li>
+        <li class="flex items-center">
+          <a href="#">Match</a>
+        </li>
+      </ol> -->
+      <!-- End of breadcrumb -->
+
+      <!-- Start of Catchy slogan/CTA -->
+      <div class="xl:max-w-xl">
+
+        <!-- Start only visible on mobile -->
+        <img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:w-full sm:object-cover hidden secret" src="img/hero7a.jpg"
+          alt="">
+        <h3 class="hidden secret-msg mx-auto text-center pb-6">
+          因為是demo，如果你重新進來這一頁，我就當做不知道。
+        </h3>
+        <!-- End of only visible on mobile -->
+
+      </div>
+    </div>
+
+    <!-- Start of Hidden content, only visible on desktop -->
+    <div class="hidden lg:block relative 2xl:col-span-3 z-0 overflow-hidden">
+    </div>
+  </div>
+  <!-- End of Hidden content, only visible on desktop -->
+
+
+  <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <!-- partial:index.partial.html -->
+    <div class="stage">
+      <!-- <div class="title text-gray-600">Start Swiping Now!</div> -->
+      <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
+        <div class="stackedcards-container">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image animate__animated animate__fadeInRight"><img src="img/swipe/1.png" width="100%"
+                  height="100%" /></div>
+              <div class="card-titles">
+                <h1>Jane (23)<br>ESFP</h1>
+                <h3>相配度:93%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/cocktail.png" width="100%" height="100%" class="wine hvr-pulse">
+                </div>
+                <div class="circle"><img src="img/cutlery.png" width="100%" height="100%" class="food hvr-pulse">
+                </div>
+                <div class="circle"><img src="img/yoga.png" width="100%" height="100%" class="yoga hvr-pulse">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/2a.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>歪果仁 (29)<br>ENTJ</h1>
+                <h3>相配度:13%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/dumbbell.png" width="100%" height="100%" class="fitness hvr-pulse">
+                </div>
+                <div class="circle"><img src="img/tarot.png" width="100%" height="100%" class="astro hvr-pulse">
+                </div>
+                <div class="circle"><img src="img/magic-ball.png" width="100%" height="100%" class="newage hvr-pulse">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/3.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>花花 (23)<br>INFP</h1>
+                <h3>相配度:72%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/cinema.png" width="100%" height="100%" class="movie">
+                </div>
+                <div class="circle"><img src="img/music-notes.png" width="100%" height="100%" class="music">
+                </div>
+                <div class="circle"><img src="img/surf.png" width="100%" height="100%" class="surfing">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/4.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>糖糖 (29)<br>ESTP</h1>
+                <h3>相配度:52%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/open-book.png" width="100%" height="100%" class="reading">
+                </div>
+                <div class="circle"><img src="img/nerd.png" width="100%" height="100%" class="nerd">
+                </div>
+                <div class="circle"><img src="img/computer.png" width="100%" height="100%" class="tech">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/5b.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>花花 (31)<br>INFJ</h1>
+                <h3>相配度:85%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/magic-ball.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/cinema.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/open-book.png" width="100%" height="100%" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/6b.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>米沙 (23)<br>ISFP</h1>
+                <h3>相配度:56%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/music-notes.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/cocktail.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/yoga.png" width="100%" height="100%" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image"><img src="img/swipe/10.png" width="100%" height="100%" /></div>
+
+              <div class="card-titles">
+                <h1>白白 (26)<br>ENFP</h1>
+                <h3>相配度:65%</h3>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="popular-destinations-text">我喜歡... <br />I love to...</div>
+              <div class="popular-destinations-images">
+                <div class="circle"><img src="img/nerd.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/open-book.png" width="100%" height="100%" />
+                </div>
+                <div class="circle"><img src="img/cocktail.png" width="100%" height="100%" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stackedcards--animatable stackedcards-overlay top"><img src="img/confetti.png" width="auto"
+            height="auto" /></div>
+        <div class="stackedcards--animatable stackedcards-overlay right"><img src="img/approved.png" width="auto"
+            height="auto" /></div>
+        <div class="stackedcards--animatable stackedcards-overlay left"><img src="img/rejected.png" width="auto"
+            height="auto" /></div>
+      </div>
+      <div class="global-actions flex justify-center pt-4 min-w-full lg:pt-4">
+        <div class="left-action cursor-pointer hvr-pulse"><img id="cancel" src="img/cancel.png">
+        </div>
+        <div class="top-action cursor-pointer hvr-pulse"><img id="superlike" src="img/heart.png">
+        </div>
+        <div class="right-action cursor-pointer hvr-pulse"><img id="approve" src="img/checked.png"></div>
+
+      </div>
+
+      <div class="global-actions flex justify-center pt-0 mb-1 min-w-full">
+        <div class="left-action1 cursor-pointer hvr-pulse text-primary back">
+          <a href="javascript:history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+            </svg></a>
+        </div>
+        <div class="top-action1 cursor-pointer hvr-pulse text-primary home">
+          <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg></a>
+        </div>
+        <div class="right-action1 cursor-pointer hvr-pulse text-primary chat">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="final-state hidden">
+      <button class="py-5 btn btn-primary shadow-lg hover:-translate-y-1 transition transform duration-200 ease-in-out"
+        onclick="window.history.back()">GO
+        BACK</button>
+    </div>
+    <!-- partial -->
+  </div>
+
+
+
+  <!-- <div class="absolute top-0"><button id=""
+      class="btn btn-primary shadow-lg hover:-translate-y-1 transition transform duration-200 ease-in-out min-w-3/4 rounded-full">
+      <span class="inline">Home</span>
+    </button></div> -->
+
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script src="js/swipe.js"></script>
+
+
+  <script>
+    // With the above scripts loaded, you can call `tippy()` with a CSS
+    // selector and a `content` prop:
+    // tippy('#cancel', {
+    //   content: '給我滾遠一點!',
+    // });
+
+    tippy('#superlike', {
+      content: '你知道什麼是super like嗎? 跟Tinder一樣!',
+    });
+
+    // tippy('#approve', {
+    //   content: '按讚還需要人教?',
+    // });
+
+    tippy('.food', {
+      content: '用戶是個吃貨。約他/她去好吃的餐廳吧!',
+    });
+
+    tippy('.wine', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.sports', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.fitness', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.yoga', {
+      content: 'Java跟Javascript的差別就是韓國瑜跟韓國瑜珈老師的差別一樣。',
+    });
+
+    tippy('.astro', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.newage', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.movie', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.music', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.surfing', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.reading', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.nerd', {
+      content: '無酒不歡的小酒鬼',
+    });
+
+    tippy('.home', {
+      content: '回到首頁',
+    });
+
+    tippy('.back', {
+      content: '回上一頁',
+    });
+
+    tippy('.chat', {
+      content: '線上聊天',
+    });
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>

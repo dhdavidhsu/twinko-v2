@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TWINKO - 戀愛不再看感覺，約會不用靠運氣</title>
+
+  <!-- Favicon for different devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  <meta name="msapplication-TileColor" content="#818cf8">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- CSS : Tailwind template & My own CSS -->
+  <link rel="stylesheet" href="css/tailwind.css ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hover-min.css">
+  <link rel="stylesheet" href="css/personality.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+
+<body class="overflow-x-hidden">
+
+  <!-- Start of nav -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div class="w-full text-gray-700 bg-indigo-400">
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="p-4 flex flex-row items-center justify-between">
+        <a href="index.html"
+          class="md:hidden text-lg font-semibold tracking-widest text-white uppercase rounded-lg  focus:outline-none focus:shadow-outline">TWINKO
+        </a>
+        <a href="index.html"
+          class="hover:-translate-y-1 hover:scale-150 transition transform duration-500 ease-in-out current-page"><img
+            class="h-6 xl:h-24 hidden md:inline hvr-pulse" src="img/logo.png" alt=""></a>
+        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row text-gray-50">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="chat.html">即時聊天</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="personality.html">人格測驗</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse"
+          href="match.html">每日配對</a>
+
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg z-50 hvr-pulse">
+            <span>關於我們</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-50">
+            <div class="px-2 py-2 bg-indigo-400 rounded-md shadow">
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="about-us.html">關於我們</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="testimonial.html">客戶見證</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="contact-us.html">聯絡我們</a>
+            </div>
+          </div>
+        </div>
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse">
+            <span>聚會交友</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-30">
+            <div class="px-2 py-2 bg-indigo-400 rounded-md shadow dark-mode:bg-gray-700">
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#">Link #1</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#">Link #2</a>
+              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#">Link #3</a>
+            </div>
+          </div>
+        </div>
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <button @click="open = !open"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline lg:text-lg hvr-pulse">
+            <span>遊戲商城</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right z-30">
+            <div class="px-2 pt-2 pb-4 bg-indigo-400 rounded-md shadow-lg dark-mode:bg-gray-700">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Appearance</p>
+                    <p class="text-sm">Easy customization</p>
+                  </div>
+                </a>
+
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Comments</p>
+                    <p class="text-sm">Check your latest comments</p>
+                  </div>
+                </a>
+
+                <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
+                      <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                      <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Analytics</p>
+                    <p class="text-sm">Take a look at your statistics</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- End of nav -->
+
+
+  <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
+    <div class="flex h-screen antialiased text-gray-900 bg-blue-gray-100 dark:bg-dark dark:text-light">
+      <!-- Loading screen -->
+      <div x-ref="loading"
+        class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker">
+        Loading.....
+      </div>
+
+      <!-- Sidebar -->
+      <div class="flex flex-shrink-0 transition-all">
+        <div x-show="isSidebarOpen" @click="isSidebarOpen = false"
+          class="fixed inset-0 z-10 bg-black bg-opacity-50 lg:hidden"></div>
+        <div x-show="isSidebarOpen" class="fixed inset-y-0 z-10 w-16"></div>
+
+        <!-- Mobile bottom bar -->
+        <nav aria-label="Options"
+          class="fixed inset-x-0 bottom-0 flex flex-row-reverse items-center justify-between px-4 py-2 bg-white border-t sm:hidden shadow-t border-primary-100 rounded-t-3xl z-50">
+          <!-- Menu button -->
+          <button
+            @click="(isSidebarOpen && currentSidebarTab == 'linksTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'linksTab'"
+            class="p-2 transition-colors rounded-lg shadow-md hover:bg-primary-darker hover:text-white focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2"
+            :class="(isSidebarOpen && currentSidebarTab == 'linksTab') ? 'text-white bg-primary' : 'text-gray-500 bg-indigo-300'">
+            <span class="sr-only">Toggle sidebar</span>
+            <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+          </button>
+
+          <!-- Logo -->
+          <a href="index.html"
+            class="hover:-translate-y-1 hover:scale-150 transition transform duration-500 ease-in-out hvr-pulse">
+            <img class="w-10 h-auto" src="img/logo-nav.png" alt="TWINKO" />
+          </a>
+
+          <!-- User avatar button -->
+          <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
+            <button @click="isOpen = !isOpen; $nextTick(() => {isOpen ? $refs.userMenu.focus() : null})"
+              class="transition-opacity rounded-lg opacity-80 hover:opacity-100 focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2">
+              <img class="w-8 h-8 rounded-lg shadow-md" src="img/avatar2.png" alt="David Hsu" />
+              <span class="sr-only">User menu</span>
+            </button>
+            <div x-show="isOpen" @click.away="isOpen = false" @keydown.escape="isOpen = false" x-ref="userMenu"
+              tabindex="-1"
+              class="absolute w-48 py-1 mt-2 origin-bottom-left bg-white rounded-md shadow-lg left-10 bottom-14 focus:outline-none"
+              role="menu" aria-orientation="vertical" aria-label="user menu">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your
+                Profile</a>
+
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Left mini bar -->
+        <nav aria-label="Options"
+          class="z-20 flex-col items-center flex-shrink-0 hidden w-16 py-4 bg-gray-100 border-r-2 shadow-md sm:flex rounded-tr-3xl rounded-br-3xl border-primary-100 h-3/4 ">
+          <!-- Logo -->
+          <div class="flex-shrink-0 py-4">
+            <a href="index.html"
+              class="hover:-translate-y-1 hover:scale-150 transition transform duration-500 ease-in-out hvr-pulse">
+              <img class="w-10 h-auto" src="img/logo-nav.png" alt="Home" />
+            </a>
+          </div>
+          <div class="flex flex-col items-center flex-1 p-2 space-y-4">
+            <!-- Menu button -->
+            <button
+              @click="(isSidebarOpen && currentSidebarTab == 'linksTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'linksTab'"
+              class="p-2 transition-colors rounded-lg shadow-md hover:bg-primary-darker hover:text-white focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2"
+              :class="(isSidebarOpen && currentSidebarTab == 'linksTab') ? 'text-black bg-primary' : 'text-gray-500 bg-indigo-300'">
+              <span class="sr-only">Toggle sidebar</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
+            </button>
+            <!-- Messages button -->
+            <button
+              @click="(isSidebarOpen && currentSidebarTab == 'messagesTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'messagesTab'"
+              class="p-2 transition-colors rounded-lg shadow-md hover:bg-primary-darker hover:text-white focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2"
+              :class="(isSidebarOpen && currentSidebarTab == 'messagesTab') ? 'text-white bg-primary' : 'text-gray-500 bg-white'">
+              <span class="sr-only">Toggle message panel</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+            </button>
+            <!-- Notifications button -->
+            <button
+              @click="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'notificationsTab'"
+              class="p-2 transition-colors rounded-lg shadow-md hover:bg-primary-darker hover:text-white focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2"
+              :class="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? 'text-white bg-primary' : 'text-gray-500 bg-white'">
+              <span class="sr-only">Toggle notifications panel</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- User avatar -->
+          <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
+            <button @click="isOpen = !isOpen; $nextTick(() => {isOpen ? $refs.userMenu.focus() : null})"
+              class="transition-opacity rounded-lg opacity-80 hover:opacity-100 focus:outline-none focus:ring focus:ring-primary focus:ring-offset-white focus:ring-offset-2">
+              <img class="w-10 h-10 rounded-lg shadow-md" src="img/avatar2.png" alt="David Hsu" />
+              <span class="sr-only">User menu</span>
+            </button>
+            <div x-show="isOpen" @click.away="isOpen = false" @keydown.escape="isOpen = false" x-ref="userMenu"
+              tabindex="-1"
+              class="absolute w-48 py-1 mt-2 origin-bottom-left bg-white rounded-md shadow-lg left-10 bottom-14 focus:outline-none"
+              role="menu" aria-orientation="vertical" aria-label="user menu">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your
+                Profile</a>
+
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+            </div>
+          </div>
+        </nav>
+
+        <div x-transition:enter="transform transition-transform duration-300"
+          x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
+          x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0"
+          x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen"
+          class="fixed inset-y-0 left-0 z-10 flex-shrink-0 w-64 bg-white border-r-2 shadow-lg sm:left-16 border-primary-100 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64 h-3/4">
+          <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
+            <!-- Logo -->
+            <div class="flex items-center justify-center flex-shrink-0 py-10">
+              <a href="index.html"
+                class="hover:-translate-y-1 hover:scale-150 transition transform duration-500 ease-in-out hvr-pulse">
+                <img src="img/logo.png" alt="" class="w-16">
+              </a>
+            </div>
+
+            <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
+              <a href="index.html" class="flex items-center w-full space-x-2 text-white rounded-lg bg-primary">
+                <span aria-hidden="true" class="p-2 rounded-lg bg-primary-dark">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+              <a href="chat.html"
+                class="flex items-center space-x-2 transition-colors rounded-lg group text-primary hover:bg-primary hover:text-white">
+                <span aria-hidden="true"
+                  class="p-2 transition-colors rounded-lg group-hover:bg-primary-dark group-hover:text-white">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <span>Chat</span>
+              </a>
+              <a href="match.html"
+                class="flex items-center space-x-2 transition-colors rounded-lg group text-primary hover:bg-primary hover:text-white">
+                <span aria-hidden="true"
+                  class="p-2 transition-colors rounded-lg group-hover:bg-primary-dark group-hover:text-white">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <span>Match</span>
+              </a>
+              <a href="meet.html"
+                class="flex items-center space-x-2 transition-colors rounded-lg group text-primary hover:bg-primary hover:text-white">
+                <span aria-hidden="true"
+                  class="p-2 transition-colors rounded-lg group-hover:bg-primary-dark group-hover:text-white">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <span>Meet</span>
+              </a>
+            </div>
+
+            <div class="flex-shrink-0 p-4 mt-10">
+              <div class="p-2 space-y-6 rounded-lg bg-blue-gray-100">
+                <img class="-mt-10" src="img/mail.png" alt="Not Important" style="width:30%;">
+                <p class="text-sm text-primary">
+                  升級成 <span class="text-base text-primary-darker font-semibold">白金會員</span> 享受更多福利! <br />
+                </p>
+                <button
+                  class="w-full px-4 py-2 text-center text-white transition-colors rounded-lg bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-2 focus:ring-offset-blue-gray-100">
+                  Upgrade now!
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          <section x-show="currentSidebarTab == 'messagesTab'" class="px-4 py-6">
+            <h2 class="text-xl">Messages</h2>
+            <p class="text-sm py-2">
+              <span class="text-orchid-400">美美</span> 寄了訊息給你<br>
+              "今晚有空嗎?"
+            </p>
+            <p class="text-sm py-2">
+              <span class="text-orchid-400">甜甜</span> 寄了訊息給你<br>
+              "要不要去看電影?"
+            </p>
+            <p class="text-sm py-2">
+              <span class="text-orchid-400">小花</span> 寄了訊息給你<br>
+              "你喜歡天竺鼠車車嗎?"
+            </p>
+            <p class="text-sm py-2">
+              <span class="text-orchid-400">圓圓</span> 寄了訊息給你<br>
+              "我爸媽現在不在家。要過來嗎?"
+            </p>
+
+            <p class="text-sm py-2">
+              <span class="text-orchid-400">阿明</span> 寄了訊息給你<br>
+              "你知道Java跟Javascript的分別嗎?"
+            </p>
+          </section>
+
+          <section x-show="currentSidebarTab == 'notificationsTab'" class="px-4 py-6">
+            <h2 class="text-xl">Notifications</h2>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">美美</span> 對你按了讚!<br>
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">圓圓</span> 送你小禮物!<br>
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">小花</span> 戳了你一下!<br>
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">阿明</span> 舉報了你的檔案 - <br>"使用者太帥了，一定是假帳號!"<br>
+            </p>
+
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">圓圓</span> 送你小禮物!<br>
+            </p>
+
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">甜甜</span> 傳送了聊天請求!<br>
+            </p>
+
+            </p>
+            <p class="text-sm py-4">
+              <span class="text-orchid-400">阿嬌</span> 對你按了讚!<br>
+            </p>
+
+            </p>
+
+          </section>
+        </div>
+      </div>
+      <div class="flex flex-col flex-1">
+        <header class="relative flex items-center justify-between flex-shrink-0 p-4">
+          <form action="#" class="flex-1">
+            <!--  -->
+          </form>
+          <div class="items-center hidden ml-4 sm:flex">
+            <!-- Settings button -->
+            <button @click="isSettingsPanelOpen = true"
+              class="p-2 mr-4 text-gray-400 bg-white rounded-lg shadow-md hover:text-gray-600 focus:outline-none focus:ring focus:ring-white focus:ring-offset-blue-gray-100 focus:ring-offset-4">
+              <span class="sr-only">Settings</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+
+            <!-- Github link -->
+            <a href="#"
+              class="p-2 text-white bg-black rounded-lg shadow-md hover:text-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-blue-gray-100 focus:ring-offset-2">
+              <span class="sr-only">Link</span>
+              <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.026,2c-5.509,0-9.974,4.465-9.974,9.974c0,4.406,2.857,8.145,6.821,9.465 c0.499,0.09,0.679-0.217,0.679-0.481c0-0.237-0.008-0.865-0.011-1.696c-2.775,0.602-3.361-1.338-3.361-1.338 c-0.452-1.152-1.107-1.459-1.107-1.459c-0.905-0.619,0.069-0.605,0.069-0.605c1.002,0.07,1.527,1.028,1.527,1.028 c0.89,1.524,2.336,1.084,2.902,0.829c0.091-0.645,0.351-1.085,0.635-1.334c-2.214-0.251-4.542-1.107-4.542-4.93 c0-1.087,0.389-1.979,1.024-2.675c-0.101-0.253-0.446-1.268,0.099-2.64c0,0,0.837-0.269,2.742,1.021 c0.798-0.221,1.649-0.332,2.496-0.336c0.849,0.004,1.701,0.115,2.496,0.336c1.906-1.291,2.742-1.021,2.742-1.021 c0.545,1.372,0.203,2.387,0.099,2.64c0.64,0.696,1.024,1.587,1.024,2.675c0,3.833-2.33,4.675-4.552,4.922 c0.355,0.308,0.675,0.916,0.675,1.846c0,1.334-0.012,2.41-0.012,2.737c0,0.267,0.178,0.577,0.687,0.479 C19.146,20.115,22,16.379,22,11.974C22,6.465,17.535,2,12.026,2z">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mobile sub header button -->
+          <button @click="isSubHeaderOpen = !isSubHeaderOpen"
+            class="p-2 text-gray-400 bg-white rounded-lg shadow-md sm:hidden hover:text-gray-600 focus:outline-none focus:ring focus:ring-white focus:ring-offset-blue-gray-100 focus:ring-offset-4">
+            <span class="sr-only">More</span>
+
+            <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            </svg>
+          </button>
+
+          <!-- Mobile sub header -->
+          <div x-transition:enter="transform transition-transform" x-transition:enter-start="translate-y-full opacity-0"
+            x-transition:enter-end="translate-y-0 opacity-100" x-transition:leave="transform transition-transform"
+            x-transition:leave-start="translate-y-0 opacity-100" x-transition:leave-end="translate-y-full opacity-0"
+            x-show="isSubHeaderOpen" @click.away="isSubHeaderOpen = false"
+            class="absolute flex items-center justify-between p-2 bg-white rounded-md shadow-lg sm:hidden top-16 left-5 right-5">
+            <!-- Seetings button -->
+            <button @click="isSettingsPanelOpen = true; isSubHeaderOpen = false"
+              class="p-2 text-gray-400 bg-white rounded-lg shadow-md hover:text-gray-600 focus:outline-none focus:ring focus:ring-white focus:ring-offset-blue-gray-100 focus:ring-offset-4">
+              <span class="sr-only">Settings</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+            <!-- Messages button -->
+            <button @click="isSidebarOpen = true; currentSidebarTab = 'messagesTab'; isSubHeaderOpen = false"
+              class="p-2 text-gray-400 bg-white rounded-lg shadow-md hover:text-gray-600 focus:outline-none focus:ring focus:ring-white focus:ring-offset-blue-gray-100 focus:ring-offset-4">
+              <span class="sr-only">Toggle message panel</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+            </button>
+            <!-- Notifications button -->
+            <button @click="isSidebarOpen = true; currentSidebarTab = 'notificationsTab'; isSubHeaderOpen = false"
+              class="p-2 text-gray-400 bg-white rounded-lg shadow-md hover:text-gray-600 focus:outline-none focus:ring focus:ring-white focus:ring-offset-blue-gray-100 focus:ring-offset-4">
+              <span class="sr-only">Toggle notifications panel</span>
+              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>
+            <!-- Github link -->
+            <a href="#"
+              class="p-2 text-white bg-black rounded-lg shadow-md hover:text-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-blue-gray-100 focus:ring-offset-2">
+              <span class="sr-only">Link</span>
+              <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.026,2c-5.509,0-9.974,4.465-9.974,9.974c0,4.406,2.857,8.145,6.821,9.465 c0.499,0.09,0.679-0.217,0.679-0.481c0-0.237-0.008-0.865-0.011-1.696c-2.775,0.602-3.361-1.338-3.361-1.338 c-0.452-1.152-1.107-1.459-1.107-1.459c-0.905-0.619,0.069-0.605,0.069-0.605c1.002,0.07,1.527,1.028,1.527,1.028 c0.89,1.524,2.336,1.084,2.902,0.829c0.091-0.645,0.351-1.085,0.635-1.334c-2.214-0.251-4.542-1.107-4.542-4.93 c0-1.087,0.389-1.979,1.024-2.675c-0.101-0.253-0.446-1.268,0.099-2.64c0,0,0.837-0.269,2.742,1.021 c0.798-0.221,1.649-0.332,2.496-0.336c0.849,0.004,1.701,0.115,2.496,0.336c1.906-1.291,2.742-1.021,2.742-1.021 c0.545,1.372,0.203,2.387,0.099,2.64c0.64,0.696,1.024,1.587,1.024,2.675c0,3.833-2.33,4.675-4.552,4.922 c0.355,0.308,0.675,0.916,0.675,1.846c0,1.334-0.012,2.41-0.012,2.737c0,0.267,0.178,0.577,0.687,0.479 C19.146,20.115,22,16.379,22,11.974C22,6.465,17.535,2,12.026,2z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <div class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+          <!-- Main   flex items-center justify-center flex-1 px-4 py-8 -->
+          <main class="">
+            <!-- Content -->
+
+            <div class="bg-black lg:grid 2xl:grid-cols-5">
+              <div class="bg-black 2xl:col-span-2">
+
+
+
+                <!-- Start only visible on mobile -->
+                <div class="wrapper w-screen">
+                  <div class="effect-box">
+                    <p>TWINKO</p>
+                    <p>Perfect match</p>
+                  </div>
+                  <small class="mode-name-wrapper">
+                    <span class="mode-name">TWINKO</span>
+                  </small>
+                </div>
+                <!-- End of only visible on mobile -->
+              </div>
+
+              <!-- Start of Hidden content, only visible on desktop -->
+              <div class="hidden relative lg:block 2xl:col-span-5 z-0">
+                <!-- <img class="absolute inset-0 w-full h-full object-contain object-center " src="img/header.png" alt=""> -->
+
+                <!-- <div class="bg-black bg-contain bg-no-repeat bg-center mx-auto max-h-full"
+                  style="background-image: url('img/match-bg3.png');">
+                  <div class="spotlight mx-auto sm:max-w-xl md:max-w-full min-h-screen"></div>
+                </div> -->
+
+              </div>
+            </div>
+            <!-- End of Hidden content, only visible on desktop -->
+
+            <!-- Start of breadcrumb -->
+            <ol class="list-none p-0 inline-flex lg:hidden pt-12">
+              <li class="flex items-center">
+                <a href="index.html">Home</a>
+                <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path
+                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                </svg>
+              </li>
+              <li class="flex items-center">
+                <a href="personality.html">Personality</a>
+              </li>
+            </ol>
+            <!-- End of breadcrumb -->
+
+            <div class="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+              <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                <div>
+                  <p
+                    class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-blue-900 uppercase rounded-full bg-blue-300">
+                    Brand new
+                  </p>
+                </div>
+                <h2
+                  class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                  <span class="relative inline-block">
+                    <svg viewBox="0 0 52 24" fill="currentColor"
+                      class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-indigo-600 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                      <defs>
+                        <pattern id="ea469ae8-e6ec-4aca-8875-fc402da4d16e" x="0" y="0" width=".135" height=".30">
+                          <circle cx="1" cy="1" r=".7"></circle>
+                        </pattern>
+                      </defs>
+                      <rect fill="url(#ea469ae8-e6ec-4aca-8875-fc402da4d16e)" width="52" height="24"></rect>
+                    </svg>
+                    <span class="relative">神準</span>
+                  </span>戀愛心理學<br><span class="text-gray-800">讓你找到最適合的另一伴</span>
+                </h2>
+                <p class="text-base text-gray-700 md:text-lg">
+                  找伴侶，找夥伴，找麻吉，找知己，都在TWINKO®!
+
+                </p>
+              </div>
+
+
+              <div class="grid gap-8 row-gap-10 md:grid-cols-1">
+
+
+                <div class="container">
+                  <ol class="shadow-lg shadow-inner">
+                    <li><strong>At a party do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q1" value="e">
+                          Interact with many, including strangers
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q1" value="i">
+                          Interact with a few, known to you
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q2" value="s">
+                          Realistic than speculative
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q2" value="n">
+                          Speculative than realistic
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Is it worse to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q3" value="s">
+                          Have your “head in the clouds”
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q3" value="n">
+                          Be “in a rut”
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more impressed by:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q4" value="t">
+                          Principles
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q4" value="f">
+                          Emotions
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are more drawn toward the:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q5" value="t">
+                          Convincing
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q5" value="f">
+                          Touching
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you prefer to work:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q6" value="j">
+                          To deadlines
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q6" value="p">
+                          Just “whenever”
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you tend to choose:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q7" value="j">
+                          Rather carefully
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q7" value="p">
+                          Somewhat impulsively
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>At parties do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q8" value="e">
+                          Stay late, with increasing energy
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q8" value="i">
+                          Leave early with decreased energy
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more attracted to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q9" value="s">
+                          Sensible people
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q9" value="n">
+                          Imaginative people
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more interested in:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q10" value="s">
+                          What is actual
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q10" value="n">
+                          What is possible
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In judging others are you more swayed by:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q11" value="t">
+                          Laws than circumstances
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q11" value="f">
+                          Circumstances than laws
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In approaching others is your inclination to be somewhat:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q12" value="t">
+                          Objective
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q12" value="f">
+                          Personal
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q13" value="j">
+                          Punctual
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q13" value="p">
+                          Leisurely
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Does it bother you more having things:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q14" value="j">
+                          Incomplete
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q14" value="p">
+                          Completed
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In your social groups do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q15" value="e">
+                          Keep abreast of other’s happenings
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q15" value="i">
+                          Get behind on the news
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In doing ordinary things are you more likely to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q16" value="s">
+                          Do it the usual way
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q16" value="n">
+                          Do it your own way
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Writers should:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q17" value="s">
+                          Say what they mean and mean what they say
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q17" value="n">
+                          Express things more by use of analogy
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which appeals to you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q18" value="t">
+                          Consistency of thought
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q18" value="f">
+                          Harmonious human relationships
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more comfortable in making:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q19" value="t">
+                          Logical judgments
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q19" value="f">
+                          Value judgments
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you want things:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q20" value="j">
+                          Settled and decided
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q20" value="p">
+                          Unsettled and undecided
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Would you say you are more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q21" value="j">
+                          Serious and determined
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q21" value="p">
+                          Easy-going
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In phoning do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q22" value="e">
+                          Rarely question that it will all be said
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q22" value="i">
+                          Rehearse what you’ll say
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Facts:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q23" value="s">
+                          Speak for themselves
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q23" value="n">
+                          Illustrate principles
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are visionaries:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q24" value="s">
+                          somewhat annoying
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q24" value="n">
+                          rather fascinating
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more often:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q25" value="t">
+                          a cool-headed person
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q25" value="f">
+                          a warm-hearted person
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Is it worse to be:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q26" value="t">
+                          unjust
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q26" value="f">
+                          merciless
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Should one usually let events occur:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q27" value="j">
+                          by careful selection and choice
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q27" value="p">
+                          randomly and by chance
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you feel better about:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q28" value="j">
+                          having purchased
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q28" value="p">
+                          having the option to buy
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In company do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q29" value="e">
+                          initiate conversation
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q29" value="i">
+                          wait to be approached
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Common sense is:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q30" value="s">
+                          rarely questionable
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q30" value="n">
+                          frequently questionable
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Children often do not:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q31" value="s">
+                          make themselves useful enough
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q31" value="n">
+                          exercise their fantasy enough
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In making decisions do you feel more comfortable with:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q32" value="t">
+                          standards
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q32" value="f">
+                          feelings
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q33" value="t">
+                          firm than gentle
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q33" value="f">
+                          gentle than firm
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which is more admirable:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q34" value="j">
+                          the ability to organize and be methodical
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q34" value="p">
+                          the ability to adapt and make do
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you put more value on:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q35" value="j">
+                          infinite
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q35" value="p">
+                          open-minded
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Does new and non-routine interaction:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q36" value="e">
+                          stimulate and energize you
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q36" value="i">
+                          tax your reserves
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more frequently:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q37" value="s">
+                          a practical sort of person
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q37" value="n">
+                          a fanciful sort of person
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more likely to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q38" value="s">
+                          see how others are useful
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q38" value="n">
+                          see how others see
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which is more satisfying:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q39" value="t">
+                          to discuss an issue thoroughly
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q39" value="f">
+                          to arrive at agreement on an issue
+                        </label>
+                      </div>
+                    </li>
+
+
+
+                    <li><strong>Which rules you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q40" value="t">
+                          your head
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q40" value="f">
+                          your heart
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more comfortable with work that:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q41" value="j">
+                          contracted
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q41" value="p">
+                          done on a casual basis
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you tend to look for:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q42" value="j">
+                          the orderly
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q42" value="p">
+                          whatever turns up
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you prefer:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q43" value="e">
+                          many friends with brief contact
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q43" value="i">
+                          a few friends with more lengthy contact
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you go more by:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q44" value="s">
+                          facts
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q44" value="n">
+                          principles
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more interested in:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q45" value="s">
+                          production and distribution
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q45" value="n">
+                          design and research
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which is more of a compliment:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q46" value="t">
+                          “There is a very logical person.”
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q46" value="f">
+                          “There is a very sentimental person.”
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you value in yourself more that you are:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q47" value="t">
+                          unwavering
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q47" value="f">
+                          devoted
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you more often prefer the:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q48" value="j">
+                          final and unalterable statement
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q48" value="p">
+                          tentative and preliminary statement
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more comfortable:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q49" value="j">
+                          after a decision
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q49" value="p">
+                          before a decision
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q50" value="e">
+                          speak easily and at length with strangers
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q50" value="i">
+                          find little to say to strangers
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more likely to trust your:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q51" value="s">
+                          experience
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q51" value="n">
+                          hunch
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you feel:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q52" value="s">
+                          more practical than ingenious
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q52" value="n">
+                          more ingenious than practical
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which person is more to be complimented &ndash; one of:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q53" value="t">
+                          clear reason
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q53" value="f">
+                          strong feeling
+                        </label>
+                      </div>
+                    </li>
+
+
+
+                    <li><strong>Are you inclined more to be:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q54" value="t">
+                          fair-minded
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q54" value="f">
+                          sympathetic
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Is it preferable mostly to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q55" value="j">
+                          make sure things are arranged
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q55" value="p">
+                          just let things happen
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In relationships should most things be:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q56" value="j">
+                          re-negotiable
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q56" value="p">
+                          random and circumstantial
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>When the phone rings do you:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q57" value="e">
+                          hasten to get to it first
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q57" value="i">
+                          hope someone else will answer
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you prize more in yourself:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q58" value="s">
+                          a strong sense of reality
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q58" value="n">
+                          a vivid imagination
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you drawn more to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q59" value="s">
+                          fundamentals
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q59" value="n">
+                          overtones
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which seems the greater error:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q60" value="t">
+                          to be too passionate
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q60" value="f">
+                          to be too objective
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you see yourself as basically:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q61" value="t">
+                          hard-headed
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q61" value="f">
+                          soft-hearted
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which situation appeals to you more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q62" value="j">
+                          the structured and scheduled
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q62" value="p">
+                          the unstructured and unscheduled
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you a person that is more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q63" value="j">
+                          routinized than whimsical
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q63" value="p">
+                          whimsical than routinized
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Are you more inclined to be:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q64" value="e">
+                          easy to approach
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q64" value="i">
+                          somewhat reserved
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>In writings do you prefer:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q65" value="s">
+                          the more literal
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q65" value="n">
+                          the more figurative
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Is it harder for you to:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q66" value="s">
+                          identify with others
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q66" value="n">
+                          utilize others
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which do you wish more for yourself:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q67" value="t">
+                          clarity of reason
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q67" value="f">
+                          strength of compassion
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Which is the greater fault:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q68" value="t">
+                          being indiscriminate
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q68" value="f">
+                          being critical
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you prefer the:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q69" value="j">
+                          planned event
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q69" value="p">
+                          unplanned event
+                        </label>
+                      </div>
+                    </li>
+
+                    <li><strong>Do you tend to be more:</strong><br>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q70" value="j">
+                          deliberate than spontaneous
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="q70" value="p">
+                          spontaneous than deliberate
+                        </label>
+                      </div>
+                    </li>
+
+                  </ol>
+
+                  <p id="scroll-down" class="hidden text-center">(<i>scroll down</i>)</p>
+                  <p class="text-center"><button id="submit" class="btn btn-primary btn-lg">Calculate Results</button>
+                  </p>
+
+                  <div id="results" class="text-center hidden">
+                    <br><br>
+                    <h2 id="type"></h2>
+                    <p id="type-details" class="type-description hidden">
+                      <strong id="type-title"></strong><br>
+                      <strong><span id="type-percentage"></span> of population</strong><br>
+                      <span id="type-description"></span><br>
+                      <a id="type-site" href="#" target="_blank">Learn more about your type here</a>
+                    </p>
+                    <p class="pull-left"><span class="badge">E</span> (<span id="eScore"></span>%)</p>
+                    <p class="pull-right">(<span id="iScore"></span>%) <span class="badge">I</span></p>
+                    <div class="progress">
+                      <div id="eiChart" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                      <div class="center-bar"></div>
+                    </div>
+                    <br class="clearfix">
+
+                    <p class="pull-left"><span class="badge">S</span> (<span id="sScore"></span>%)</p>
+                    <p class="pull-right">(<span id="nScore"></span>%) <span class="badge">N</span></p>
+                    <div class="progress">
+                      <div id="snChart" class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                      <div class="center-bar"></div>
+                    </div>
+                    <br class="clearfix">
+
+                    <p class="pull-left"><span class="badge">T</span> (<span id="tScore"></span>%)</p>
+                    <p class="pull-right">(<span id="fScore"></span>%) <span class="badge">F</span></p>
+                    <div class="progress">
+                      <div id="tfChart" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                      <div class="center-bar"></div>
+                    </div>
+                    <br class="clearfix">
+
+                    <p class="pull-left"><span class="badge">J</span> (<span id="jScore"></span>%)</p>
+                    <p class="pull-right">(<span id="pScore"></span>%) <span class="badge">P</span></p>
+                    <div class="progress">
+                      <div id="jpChart" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                      <div class="center-bar"></div>
+                    </div>
+                    <br class="clearfix">
+                  </div>
+
+                </div>
+
+
+
+              </div>
+            </div>
+
+
+            <!-- Start of footer -->
+            <div class="px-4 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 pb-10">
+              <div class="grid gap-6 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="hidden md:block md:col-span-2">
+                  <a href="index.html" aria-label="Go home" title="Company" class="inline-flex items-center">
+                    <svg class="w-8 text-purple-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                      <rect x="3" y="1" width="7" height="12"></rect>
+                      <rect x="3" y="17" width="7" height="6"></rect>
+                      <rect x="14" y="1" width="7" height="6"></rect>
+                      <rect x="14" y="11" width="7" height="12"></rect>
+                    </svg>
+                    <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">TWINKO</span>
+                  </a>
+                  <div class="mt-6 lg:max-w-sm">
+                    <p class="text-xs text-gray-800">
+                      TWINKO LTD., A SUBSIDIARY OF VMBC LTD., IS THE BRAINCHILD OF DAVID HSU, ESQ.
+                      <strong>THIS WEBSITE FOR DEMONSTRATION PURPOSES ONLY.</strong>
+                    </p>
+                    <p class="mt-4 text-xs text-gray-800">
+                      本網站只是單純交作業用，並不是真實的網站，也沒有進行任何的商業行為。本網站的內容與真實人物事件無關。如有雷同皆屬巧合。<br>什麼？你真的想要我救你脫單? 我看起來像是月老嗎?
+                    </p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-sm">
+                  <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
+                  <div class="flex">
+                    <p class="mr-1 text-gray-800">Phone:</p>
+                    <a href="tel:02-2320-620*" aria-label="Our phone" title="Our phone"
+                      class="transition-colors duration-300 hover:text-purple-800">02-2320-6208</a>
+                  </div>
+                  <div class="flex">
+                    <p class="mr-1 text-gray-800">Email:</p>
+                    <a href="mailto:twinko@hornpub.com" aria-label="Our email" title="Our email"
+                      class="transition-colors duration-300 hover:text-purple-800">twinko@hornpub.com</a>
+                  </div>
+                  <div class="flex">
+                    <p class="mr-1 text-gray-800">Address:</p>
+                    <a href="https://goo.gl/maps/n6DhG4pN46x7bLMG9" target="_blank" rel="noopener noreferrer"
+                      aria-label="Our address" title="Our address"
+                      class="transition-colors duration-300 hover:text-purple-800">
+                      420 Man Fuk Rd, Taipei
+                    </a>
+                  </div>
+                </div>
+                <div class="hidden md:block">
+                  <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
+                  <div class="flex items-center mt-1 space-x-3">
+                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+                        </path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+                      <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+                        <circle cx="15" cy="15" r="4"></circle>
+                        <path
+                          d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z">
+                        </path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-purple-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+                        </path>
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="mt-4 text-sm text-gray-500">
+                    我們終於有FB, IG, Youtube了 !!! 在社群媒體上追蹤我們吧! </p>
+                </div>
+              </div>
+              <div class="flex flex-col-reverse justify-between pt-5 pb-6 border-t lg:flex-row">
+                <p class="text-tiny text-gray-600 md:hidden py-2">嘿，女孩/男孩。我猜你現在正在用手機看TWINKO。我猜對了嗎?
+                  沒想到真的有人這麼認真地看這麼小的字。用這樣的心態去讀書的話，你都可以上哈佛了呢(誤)! 既然你這麼認真，那我偷偷告訴你，TWINKO在手機/平板/電腦上看都是不一樣的喔! 版面跟圖片都不一樣。Have
+                  a
+                  wonderful day, whoever you are. :)
+                </p>
+                <p class="text-sm text-gray-600">
+                  Copyright © 2021 TWINKO LTD. All rights reserved.
+                </p>
+
+                <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+                  <li>
+                    <a href="/"
+                      class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">F.A.Q</a>
+                  </li>
+                  <li>
+                    <a href="/"
+                      class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">Privacy
+                      Policy</a>
+                  </li>
+                  <li>
+                    <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-purple-400">Terms
+                      &amp;
+                      Conditions</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End of footer -->
+
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panels -->
+
+    <!-- Settings Panel -->
+    <!-- Backdrop -->
+    <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50" @click="isSettingsPanelOpen = false"
+      aria-hidden="true"></div>
+    <!-- Panel -->
+    <section x-transition:enter="transform transition-transform duration-300"
+      x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+      x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="translate-x-full" x-show="isSettingsPanelOpen"
+      class="fixed inset-y-0 right-0 w-64 bg-white border-l border-primary-100 rounded-l-3xl">
+      <div class="px-4 py-8">
+        <h2 class="text-md font-semibold py-2">Settings</h2>
+
+        <h2 class="text-md font-semibold py-3 text-indigo-400">我要如何更改搜尋偏好？</h2>
+        <p>「探索」是應用程式中讓您查看潛在配對對象的功能。您可隨時在「探索設定」進行編輯，以調整您想在 Twinko 上看到的對象。</p>
+
+        <h2 class="text-md font-semibold py-3 text-indigo-400">位置</h2>
+        <p>Twinko 訂戶可更改所在位置，和全世界的使用者交朋友。</p>
+
+        <h2 class="text-md font-semibold py-3 text-indigo-400">距離</h2>
+        <p>Twinko 讓您查看目前所在位置方圓 100 英哩內的潛在配對對象。您可隨時調整距離偏好，擴大或縮小您的建議範圍。</p>
+
+        <h2 class="text-md font-semibold py-3 text-indigo-400">年齡範圍</h2>
+        <p>使用者必須年滿 18 歲才能註冊 Twinko。</p>
+      </div>
+    </section>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    const setup = () => {
+      return {
+        isSidebarOpen: false,
+        currentSidebarTab: null,
+        isSettingsPanelOpen: false,
+        isSubHeaderOpen: false,
+        watchScreen() {
+          if (window.innerWidth <= 1024) {
+            this.isSidebarOpen = false
+          }
+        },
+      }
+    }
+  </script>
+
+  <!-- <script src="js/mbti.js"></script> -->
+</body>
+
+</html>
